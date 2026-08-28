@@ -1694,6 +1694,325 @@
       });
     })();
   </script>
+  
+  <!-- ================= TIC AI ASSISTANT ================= -->
 
+<style>
+  .tic-ai-button {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    border: none;
+    border-radius: 999px;
+    padding: 14px 20px;
+    background: var(--crimson);
+    color: var(--ivory);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(21, 16, 14, 0.25);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .tic-ai-button:hover {
+    transform: translateY(-2px);
+    background: var(--crimson-light);
+  }
+
+  .tic-ai-panel {
+    position: fixed;
+    right: 24px;
+    bottom: 82px;
+    z-index: 1000;
+    width: min(380px, calc(100vw - 32px));
+    height: 520px;
+    display: none;
+    flex-direction: column;
+    background: var(--paper);
+    border: 1px solid var(--line-light);
+    box-shadow: 0 20px 60px rgba(21, 16, 14, 0.25);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .tic-ai-panel.open {
+    display: flex;
+  }
+
+  .tic-ai-header {
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .tic-ai-header strong {
+    font-family: var(--font-display);
+    font-size: 16px;
+  }
+
+  .tic-ai-header span {
+    display: block;
+    margin-top: 3px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--ivory-dim);
+    letter-spacing: 0.04em;
+  }
+
+  .tic-ai-close {
+    border: none;
+    background: transparent;
+    color: var(--ivory-dim);
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .tic-ai-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tic-ai-message {
+    max-width: 85%;
+    padding: 11px 13px;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .tic-ai-message.bot {
+    align-self: flex-start;
+    background: var(--paper-2);
+    color: var(--ink);
+  }
+
+  .tic-ai-message.user {
+    align-self: flex-end;
+    background: var(--crimson);
+    color: var(--ivory);
+  }
+
+  .tic-ai-input-area {
+    border-top: 1px solid var(--line-light);
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+    background: var(--paper);
+  }
+
+  .tic-ai-input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--line-light);
+    border-radius: 4px;
+    padding: 10px 12px;
+    background: white;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 14px;
+    outline: none;
+  }
+
+  .tic-ai-input:focus {
+    border-color: var(--crimson);
+  }
+
+  .tic-ai-send {
+    border: none;
+    border-radius: 4px;
+    padding: 0 14px;
+    background: var(--ink);
+    color: var(--ivory);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .tic-ai-send:disabled {
+    opacity: 0.5;
+    cursor: wait;
+  }
+
+  @media (max-width: 600px) {
+    .tic-ai-button {
+      right: 16px;
+      bottom: 16px;
+    }
+
+    .tic-ai-panel {
+      right: 16px;
+      bottom: 72px;
+      height: 500px;
+    }
+  }
+</style>
+
+<button
+  class="tic-ai-button"
+  id="ticAiButton"
+  type="button"
+>
+  Ask TIC AI
+</button>
+
+<div
+  class="tic-ai-panel"
+  id="ticAiPanel"
+  aria-label="TIC AI assistant"
+>
+  <div class="tic-ai-header">
+    <div>
+      <strong>TIC AI</strong>
+      <span>Technology &amp; Innovation Consulting</span>
+    </div>
+
+    <button
+      class="tic-ai-close"
+      id="ticAiClose"
+      type="button"
+      aria-label="Close TIC AI"
+    >
+      ×
+    </button>
+  </div>
+
+  <div
+    class="tic-ai-messages"
+    id="ticAiMessages"
+  >
+    <div class="tic-ai-message bot">
+      Hi! I'm TIC AI. Ask me anything about TIC, what we do, or how we can help.
+    </div>
+  </div>
+
+  <form
+    class="tic-ai-input-area"
+    id="ticAiForm"
+  >
+    <input
+      class="tic-ai-input"
+      id="ticAiInput"
+      type="text"
+      placeholder="Ask about TIC..."
+      autocomplete="off"
+      required
+    >
+
+    <button
+      class="tic-ai-send"
+      id="ticAiSend"
+      type="submit"
+    >
+      Send
+    </button>
+  </form>
+</div>
+
+<script>
+  (function () {
+    const API_URL = "https://tic-website.onrender.com/chat";
+
+    const button = document.getElementById("ticAiButton");
+    const panel = document.getElementById("ticAiPanel");
+    const closeButton = document.getElementById("ticAiClose");
+    const form = document.getElementById("ticAiForm");
+    const input = document.getElementById("ticAiInput");
+    const messages = document.getElementById("ticAiMessages");
+    const sendButton = document.getElementById("ticAiSend");
+
+    function addMessage(text, type) {
+      const message = document.createElement("div");
+
+      message.className = "tic-ai-message " + type;
+      message.textContent = text;
+
+      messages.appendChild(message);
+      messages.scrollTop = messages.scrollHeight;
+
+      return message;
+    }
+
+    button.addEventListener("click", function () {
+      panel.classList.add("open");
+      input.focus();
+    });
+
+    closeButton.addEventListener("click", function () {
+      panel.classList.remove("open");
+    });
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const message = input.value.trim();
+
+      if (!message) {
+        return;
+      }
+
+      addMessage(message, "user");
+
+      input.value = "";
+      input.disabled = true;
+      sendButton.disabled = true;
+      sendButton.textContent = "...";
+
+      const thinkingMessage = addMessage(
+        "Thinking...",
+        "bot"
+      );
+
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            message: message
+          })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(
+            data.error || "The AI assistant could not respond."
+          );
+        }
+
+        thinkingMessage.textContent =
+          data.answer || "I wasn't able to generate a response.";
+      } catch (error) {
+        console.error("TIC AI error:", error);
+
+        thinkingMessage.textContent =
+          "Sorry, I couldn't connect to TIC AI right now. Please try again in a moment.";
+      } finally {
+        input.disabled = false;
+        sendButton.disabled = false;
+        sendButton.textContent = "Send";
+        input.focus();
+      }
+    });
+  })();
+</script>
+
+   <!-- ================= TIC AI ASSISTANT ================= -->
+
+  [the code above]
+  
 </body>
 </html>
