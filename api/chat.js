@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 // Hugging Face configuration
 const HF_TOKEN = process.env.HF_TOKEN;
-const MODEL = "Qwen/Qwen2.5-7B-Instruct-1M";
+const MODEL = "Qwen/Qwen2.5-7B-Instruct";
 
 // Get the directory containing this file
 const __filename = fileURLToPath(import.meta.url);
