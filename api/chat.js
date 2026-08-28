@@ -1,1 +1,133 @@
+import express from "express";
+import OpenAI from "openai";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const knowledgePath = path.join(
+  __dirname,
+  "..",
+  "knowledge",
+  "tic.md"
+);
+
+function loadKnowledge() {
+  return fs.readFileSync(knowledgePath, "utf8");
+}
+
+function splitIntoChunks(text) {
+  return text
+    .split(/\n\s*\n/)
+    .map(chunk => chunk.trim())
+    .filter(Boolean);
+}
+
+function scoreChunk(chunk, query) {
+  const words = query
+    .toLowerCase()
+    .split(/\W+/)
+    .filter(word => word.length > 2);
+
+  const lowerChunk = chunk.toLowerCase();
+
+  let score = 0;
+
+  for (const word of words) {
+    if (lowerChunk.includes(word)) {
+      score++;
+    }
+  }
+
+  return score;
+}
+
+function retrieveRelevantChunks(knowledge, query) {
+  const chunks = splitIntoChunks(knowledge);
+
+  return chunks
+    .map(chunk => ({
+      chunk,
+      score: scoreChunk(chunk, query)
+    }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5)
+    .map(item => item.chunk);
+}
+
+app.post("/chat", async (req, res) => {
+  try {
+    const message = req.body?.message?.trim();
+
+    if (!message) {
+      return res.status(400).json({
+        error: "Please provide a message."
+      });
+    }
+
+    const knowledge = loadKnowledge();
+
+    const relevantChunks = retrieveRelevantChunks(
+      knowledge,
+      message
+    );
+
+    const context = relevantChunks.join("\n\n---\n\n");
+
+    const response = await openai.responses.create({
+      model: "gpt-5-mini",
+
+      instructions: `
+You are the official AI assistant for TIC — Technology & Innovation Consulting.
+
+Answer questions about TIC accurately and helpfully.
+
+Use the provided TIC knowledge as your primary source of truth.
+
+Rules:
+1. Do not invent facts about TIC.
+2. If the knowledge does not contain enough information, say you don't have enough information.
+3. Do not pretend TIC has projects, clients, partnerships, awards, employees, or capabilities that are not supported by the knowledge.
+4. Keep answers concise and conversational.
+5. When appropriate, direct potential clients toward contacting TIC.
+6. Be professional but not overly corporate.
+
+TIC knowledge:
+
+${context}
+`,
+
+      input: message
+    });
+
+    res.json({
+      answer: response.output_text
+    });
+
+  } catch (error) {
+    console.error("Chat API error:", error);
+
+    res.status(500).json({
+      error: "The AI assistant could not process your request."
+    });
+  }
+});
+
+app.get("/", (req, res) => {
+  res.send("TIC AI backend is running.");
+});
+
+app.listen(PORT, () => {
+  console.log(`TIC AI server running on port ${PORT}`);
+});
