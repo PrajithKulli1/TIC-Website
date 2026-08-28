@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "start": "node chat.js"
+  },
   "dependencies": {
-    "openai": "^5.0.0"
+    "express": "^5.1.0"
   }
 }
