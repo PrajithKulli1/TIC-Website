@@ -699,7 +699,8 @@
         </div>
       </div>
 
-      <form class="contact-form" id="contactForm" novalidate>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/meaqqqap" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New inquiry from the TIC website">
         <div class="field">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" placeholder="Jordan Reyes" autocomplete="name">
@@ -726,34 +727,29 @@
           var form = document.getElementById('contactForm');
           var note = document.getElementById('formNote');
           if(!form) return;
+
+          var defaultNote = note.textContent;
+
           form.addEventListener('submit', function(e){
             e.preventDefault();
+            note.textContent = "Sending…";
 
-            var name = (document.getElementById('name').value || '').trim();
-            var email = (document.getElementById('email').value || '').trim();
-            var company = (document.getElementById('company').value || '').trim();
-            var message = (document.getElementById('message').value || '').trim();
+            var data = new FormData(form);
 
-            var subjectParts = ['New inquiry'];
-            if(name) subjectParts.push('from ' + name);
-            if(company) subjectParts.push('(' + company + ')');
-            var subject = subjectParts.join(' ');
-
-            var bodyLines = [
-              'Name: ' + (name || '—'),
-              'Email: ' + (email || '—'),
-              'Business or project: ' + (company || '—'),
-              '',
-              'What they\'re working on:',
-              (message || '—')
-            ];
-
-            var mailtoLink = 'mailto:ticnc.inc@gmail.com'
-              + '?subject=' + encodeURIComponent(subject)
-              + '&body=' + encodeURIComponent(bodyLines.join('\n'));
-
-            window.location.href = mailtoLink;
-            note.textContent = "Opening your email app to send this to us — if nothing opens, email ticnc.inc@gmail.com directly.";
+            fetch(form.action, {
+              method: 'POST',
+              body: data,
+              headers: { 'Accept': 'application/json' }
+            }).then(function(response){
+              if(response.ok){
+                note.textContent = "Thanks — your message is on its way. We'll reply within two business days.";
+                form.reset();
+              } else {
+                note.textContent = "Something didn't go through — please email ticnc.inc@gmail.com directly.";
+              }
+            }).catch(function(){
+              note.textContent = "Something didn't go through — please email ticnc.inc@gmail.com directly.";
+            });
           });
         })();
       </script>
