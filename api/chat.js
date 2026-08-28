@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename);
 
 // knowledge/tic.md is one folder above api/
 const knowledgePath = path.join(
-  __dirname,
+  process.cwd(),
   "..",
   "knowledge",
   "tic.md"
