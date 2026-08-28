@@ -1,29 +1,88 @@
 import express from "express";
-import OpenAI from "openai";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
+const HF_TOKEN = process.env.HF_TOKEN;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Hugging Face model
+const MODEL = "HuggingFaceTB/SmolLM3-3B";
 
-const knowledgePath = path.join(
-  __dirname,
-  "..",
-  "knowledge",
-  "tic.md"
-);
+async function askHuggingFace(message, context) {
+  const response = await fetch(
+    `https://router.huggingface.co/v1/chat/completions`,
+    {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${HF_TOKEN}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        messages: [
+          {
+            role: "system",
+            content: `
+You are the official AI assistant for TIC — Technology & Innovation Consulting.
+
+Answer questions about TIC accurately and helpfully.
+
+Use the provided TIC knowledge as your primary source of truth.
+
+Rules:
+1. Do not invent facts about TIC.
+2. If the knowledge does not contain enough information, say you don't have enough information.
+3. Do not pretend TIC has projects, clients, partnerships, awards, employees, or capabilities that are not supported by the knowledge.
+4. Keep answers concise and conversational.
+5. When appropriate, direct potential clients toward contacting TIC.
+6. Be professional but not overly corporate.
+
+TIC knowledge:
+
+${context}
+`
+          },
+          {
+            role: "user",
+            content: message
+          }
+        ],
+        max_tokens: 500,
+        temperature: 0.3
+      })
+    }
+  );
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error("Hugging Face error:", errorText);
+
+    throw new Error("Hugging Face request failed");
+  }
+
+  const data = await response.json();
+
+  return data.choices?.[0]?.message?.content || 
+    "I wasn't able to generate a response.";
+}
+
+
+// --------------------
+// RAG retrieval
+// --------------------
 
 function loadKnowledge() {
+  const fs = require("fs");
+  const path = require("path");
+
+  const knowledgePath = path.join(
+    process.cwd(),
+    "knowledge",
+    "tic.md"
+  );
+
   return fs.readFileSync(knowledgePath, "utf8");
 }
 
@@ -66,6 +125,11 @@ function retrieveRelevantChunks(knowledge, query) {
     .map(item => item.chunk);
 }
 
+
+// --------------------
+// API
+// --------------------
+
 app.post("/chat", async (req, res) => {
   try {
     const message = req.body?.message?.trim();
@@ -76,6 +140,12 @@ app.post("/chat", async (req, res) => {
       });
     }
 
+    if (!HF_TOKEN) {
+      return res.status(500).json({
+        error: "Hugging Face token is not configured."
+      });
+    }
+
     const knowledge = loadKnowledge();
 
     const relevantChunks = retrieveRelevantChunks(
@@ -83,36 +153,17 @@ app.post("/chat", async (req, res) => {
       message
     );
 
-    const context = relevantChunks.join("\n\n---\n\n");
+    const context = relevantChunks.join(
+      "\n\n---\n\n"
+    );
 
-    const response = await openai.responses.create({
-      model: "gpt-5-mini",
-
-      instructions: `
-You are the official AI assistant for TIC — Technology & Innovation Consulting.
-
-Answer questions about TIC accurately and helpfully.
-
-Use the provided TIC knowledge as your primary source of truth.
-
-Rules:
-1. Do not invent facts about TIC.
-2. If the knowledge does not contain enough information, say you don't have enough information.
-3. Do not pretend TIC has projects, clients, partnerships, awards, employees, or capabilities that are not supported by the knowledge.
-4. Keep answers concise and conversational.
-5. When appropriate, direct potential clients toward contacting TIC.
-6. Be professional but not overly corporate.
-
-TIC knowledge:
-
-${context}
-`,
-
-      input: message
-    });
+    const answer = await askHuggingFace(
+      message,
+      context
+    );
 
     res.json({
-      answer: response.output_text
+      answer
     });
 
   } catch (error) {
@@ -124,9 +175,12 @@ ${context}
   }
 });
 
+
+// Health check
 app.get("/", (req, res) => {
   res.send("TIC AI backend is running.");
 });
+
 
 app.listen(PORT, () => {
   console.log(`TIC AI server running on port ${PORT}`);
