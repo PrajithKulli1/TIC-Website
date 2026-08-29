@@ -3,6 +3,19 @@ import { TIC_KNOWLEDGE } from "./_knowledge.js";
 const HF_TOKEN = process.env.HF_TOKEN;
 const MODEL = "Qwen/Qwen2.5-7B-Instruct:featherless-ai";
 
+// Contact info is the single most reputation-sensitive thing this bot can
+// get wrong (a fabricated email or phone number actively misdirects real
+// leads). Rather than trust the model to stay grounded every time, we
+// answer contact-type questions directly from a fixed string and skip the
+// LLM call entirely for these. Update this text if TIC's contact details
+// ever change — it does NOT read from _knowledge.js automatically.
+const CONTACT_REGEX =
+  /\b(contact|e-?mail|phone|call you|call us|reach (you|out|us)|get in touch|how (can|do) i reach)\b/i;
+
+const CONTACT_ANSWER =
+  "You can reach us by email at ticnc.inc@gmail.com. We're based in Raleigh, NC, and remote-friendly. " +
+  "We don't have a phone number set up yet — email is the best way to reach us, and we typically reply within two business days.";
+
 // Comma-separated list of allowed frontend origins.
 // Set ALLOWED_ORIGINS in your Vercel project's Environment Variables, e.g.:
 // ALLOWED_ORIGINS=https://prajithkulli1.github.io
@@ -87,6 +100,7 @@ Rules:
 4. Keep answers concise and conversational.
 5. When appropriate, invite the person to reach out to us directly.
 6. Be professional but not overly corporate.
+7. If asked for contact details, give ONLY the exact email address written in the knowledge below. TIC has no phone number and no social media accounts — never invent one, even to sound more complete or helpful.
 
 TIC knowledge:
 
@@ -131,6 +145,10 @@ export default async function handler(req, res) {
 
     if (!message) {
       return res.status(400).json({ error: "Please provide a message." });
+    }
+
+    if (CONTACT_REGEX.test(message)) {
+      return res.status(200).json({ answer: CONTACT_ANSWER });
     }
 
     if (!HF_TOKEN) {
