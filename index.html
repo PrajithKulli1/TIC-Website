@@ -1588,9 +1588,11 @@
           <h2>Tell us what you're working on.</h2>
 
           <p class="lede">
-            Send a short description of the problem and where it hurts.
-            We reply within two business days with next steps, not a
-            sales call.
+            Send a short description of what you'd like to discuss and a
+            couple of times that work for you. We'll confirm a slot and
+            send a calendar invite — usually within one business day.
+            This is a request, not an instant booking: nothing gets added
+            to our calendar until we confirm with you.
           </p>
 
           <div class="contact-detail">
@@ -1600,7 +1602,7 @@
         </div>
 
         <!--
-          Formspree-powered contact form.
+          Formspree-powered request form.
 
           IMPORTANT:
           Replace the action URL below if your Formspree endpoint changes.
@@ -1610,41 +1612,41 @@
         -->
         <form
           class="contact-form"
-          id="contactForm"
+          id="callRequestForm"
           action="https://formspree.io/f/meaqqqap"
           method="POST"
           novalidate
         >
 
-          <input type="hidden" name="_subject" value="New inquiry from the TIC website">
+          <input type="hidden" name="_subject" value="Free 15-minute call request from the TIC website">
 
           <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Jordan Reyes" autocomplete="name" required>
+            <label for="callName">Name</label>
+            <input id="callName" name="name" type="text" placeholder="Jordan Reyes" autocomplete="name" required>
           </div>
 
           <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="jordan@yourbusiness.com" autocomplete="email" required>
+            <label for="callEmail">Email</label>
+            <input id="callEmail" name="email" type="email" placeholder="jordan@yourbusiness.com" autocomplete="email" required>
           </div>
 
           <div class="field">
-            <label for="company">Business or project</label>
-            <input id="company" name="company" type="text" placeholder="Name of your business or project" autocomplete="organization">
+            <label for="callTopic">Briefly describe the topic or project you'd like to discuss</label>
+            <textarea id="callTopic" name="topic" placeholder="A sentence or two is plenty to start." required></textarea>
           </div>
 
           <div class="field">
-            <label for="message">What you're working on</label>
-            <textarea id="message" name="message" placeholder="A sentence or two is plenty to start." required></textarea>
+            <label for="callTimes">A few times that work for you</label>
+            <textarea id="callTimes" name="preferred_times" placeholder="e.g. Tuesday afternoon, Thursday before noon" required></textarea>
           </div>
 
           <div class="submit-row">
-            <button class="btn-ink" id="submitButton" type="submit">
-              Send message
+            <button class="btn-ink" id="callSubmitButton" type="submit">
+              Request a call
             </button>
 
-            <span class="form-note" id="formNote" role="status" aria-live="polite">
-              No spam. No auto-drip sequence.
+            <span class="form-note" id="callFormNote" role="status" aria-live="polite">
+              We'll confirm a time — nothing's booked yet.
             </span>
           </div>
 
@@ -1695,15 +1697,17 @@
     </div>
   </footer>
 
-  <!-- ================= FORMSPREE SUBMISSION ================= -->
+  <!-- ================= CALL REQUEST SUBMISSION ================= -->
 
   <script>
     (function () {
-      const form = document.getElementById("contactForm");
-      const note = document.getElementById("formNote");
-      const submitButton = document.getElementById("submitButton");
+      const form = document.getElementById("callRequestForm");
+      const note = document.getElementById("callFormNote");
+      const submitButton = document.getElementById("callSubmitButton");
 
       if (!form || !note || !submitButton) return;
+
+      const defaultNote = note.textContent;
 
       form.addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -1717,7 +1721,7 @@
         submitButton.textContent = "Sending…";
 
         note.className = "form-note";
-        note.textContent = "Sending your message…";
+        note.textContent = "Sending your request…";
 
         try {
           const response = await fetch(form.action, {
@@ -1733,9 +1737,9 @@
 
             note.className = "form-note success";
             note.textContent =
-              "Thanks — your message is on its way. We'll reply within two business days.";
+              "Thanks — we'll review your times and follow up with a confirmed slot and calendar invite.";
 
-            submitButton.textContent = "Message sent";
+            submitButton.textContent = "Request sent";
           } else {
             let errorMessage =
               "Something didn't go through — please email ticnc.inc@gmail.com directly.";
@@ -1763,7 +1767,7 @@
             note.textContent = errorMessage;
 
             submitButton.disabled = false;
-            submitButton.textContent = "Send message";
+            submitButton.textContent = "Request a call";
           }
         } catch (error) {
           note.className = "form-note error";
@@ -1771,13 +1775,11 @@
             "Something didn't go through — please email ticnc.inc@gmail.com directly.";
 
           submitButton.disabled = false;
-          submitButton.textContent = "Send message";
+          submitButton.textContent = "Request a call";
         }
       });
     })();
   </script>
-
-  <!-- ================= TIC AI ASSISTANT ================= -->
 
   <button class="tic-ai-button" id="ticAiButton" type="button">
     Ask TIC AI
