@@ -1,7 +1,7 @@
 import { TIC_KNOWLEDGE } from "./_knowledge.js";
 
 const HF_TOKEN = process.env.HF_TOKEN;
-const MODEL = "Qwen/Qwen2.5-7B-Instruct:auto";
+const MODEL = "Qwen/Qwen2.5-7B-Instruct:featherless-ai";
 
 // Comma-separated list of allowed frontend origins.
 // Set ALLOWED_ORIGINS in your Vercel project's Environment Variables, e.g.:
