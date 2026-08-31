@@ -555,6 +555,82 @@
       max-width: 640px;
     }
 
+    /* ---------- MAINTENANCE & SUPPORT ---------- */
+
+    .support {
+      background: var(--paper);
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line-light);
+    }
+
+    .support-card {
+      padding: 32px 26px 32px 0;
+      border-right: 1px solid var(--line-light);
+    }
+
+    .support-card:not(:first-child) {
+      padding-left: 26px;
+    }
+
+    .support-card:last-child {
+      border-right: none;
+    }
+
+    .support-num {
+      font-family: var(--font-mono);
+      color: var(--crimson);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .support-card h3 {
+      font-size: 17.5px;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .support-card p {
+      font-size: 14.5px;
+      color: #262626;
+      margin: 0;
+    }
+
+    @media (max-width: 920px) {
+      .support-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .support-card {
+        border-bottom: 1px solid var(--line-light);
+        padding-bottom: 26px;
+        margin-bottom: 6px;
+      }
+
+      .support-card:nth-child(2n) {
+        border-right: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .support-card,
+      .support-card:not(:first-child) {
+        border-right: none;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
     /* ---------- ABOUT ---------- */
 
     .about {
@@ -1152,6 +1228,7 @@
         <a href="#who">Who We Work With</a>
         <a href="#approach">Approach</a>
         <a href="#capabilities">Capabilities</a>
+        <a href="#support">Support</a>
         <a href="#about">About</a>
       </nav>
 
@@ -1573,6 +1650,73 @@
       </div>
     </section>
 
+    <!-- ================= MAINTENANCE & SUPPORT ================= -->
+
+    <section class="support" id="support">
+      <div class="wrap">
+
+        <div class="section-head">
+          <p class="eyebrow">Maintenance &amp; support</p>
+          <h2>Shipped isn't the finish line.</h2>
+          <p class="deck">
+            Every project comes with documentation, so you're never stuck
+            without us. But most people would still rather not deal with
+            break-fixes, dependency updates, or a third-party service
+            quietly changing on them — that's what ongoing support covers.
+          </p>
+        </div>
+
+        <div class="support-grid">
+
+          <div class="support-card">
+            <span class="support-num">01</span>
+            <h3>Bug fixes &amp; small adjustments</h3>
+            <p>
+              Something stops working the way it should — we fix it,
+              directly, without a ticket queue in between.
+            </p>
+          </div>
+
+          <div class="support-card">
+            <span class="support-num">02</span>
+            <h3>Dependency &amp; service monitoring</h3>
+            <p>
+              APIs get deprecated, providers change their terms, models
+              get discontinued. We watch for that on your behalf so it
+              doesn't quietly break underneath you.
+            </p>
+          </div>
+
+          <div class="support-card">
+            <span class="support-num">03</span>
+            <h3>Content &amp; copy updates</h3>
+            <p>
+              Swapping out text, images, or small details shouldn't require
+              re-opening a whole project.
+            </p>
+          </div>
+
+          <div class="support-card">
+            <span class="support-num">04</span>
+            <h3>New features</h3>
+            <p>
+              Bigger additions get scoped and quoted like any new project —
+              we won't quietly fold large work into "support."
+            </p>
+          </div>
+
+        </div>
+
+        <p class="honesty-note">
+          There's no published retainer package yet. Support is scoped the
+          same way a new project is — based on what you actually need, not
+          a one-size-fits-all plan. Already working with us? Reach out any
+          time — it goes straight to the person who built your project.
+        </p>
+
+      </div>
+    </section>
+
     <!-- ================= CONTACT ================= -->
 
     <section class="contact" id="contact">
@@ -1674,6 +1818,7 @@
           <a href="#who">Who We Work With</a>
           <a href="#approach">Approach</a>
           <a href="#capabilities">Capabilities</a>
+          <a href="#support">Support</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
