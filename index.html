@@ -2014,8 +2014,21 @@
             throw new Error(data.error || "The AI assistant could not respond.");
           }
 
-          thinkingMessage.textContent =
-            data.answer || "I wasn't able to generate a response.";
+          // Sanitize the AI response: remove phone numbers and normalize known old emails to ticnc.inc@gmail.com
+          (function () {
+            let answer = data.answer || "I wasn't able to generate a response.";
+
+            // Remove common US phone formats (e.g. (919) 555-1212, 919-555-1212, 919.555.1212)
+            answer = answer.replace(/\b\(?\d{3}\)?[\s.-]*\d{3}[\s.-]*\d{4}\b/g, "");
+
+            // Replace known old emails with the canonical one
+            answer = answer.replace(/\b(?:info@ticconsulting\.com|tic@ticconsulting\.com|tic@technologyandinnovationconsulting\.com)\b/gi, "ticnc.inc@gmail.com");
+
+            // Collapse multiple spaces and clean up spacing before punctuation
+            answer = answer.replace(/\s{2,}/g, " ").replace(/\s+([.,!?;:])/g, "$1").trim();
+
+            thinkingMessage.textContent = answer;
+          })();
         } catch (error) {
           console.error("TIC AI error:", error);
 
