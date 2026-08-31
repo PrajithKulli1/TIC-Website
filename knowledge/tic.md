@@ -8,28 +8,19 @@ TIC is a founder-led technology consulting company based in Raleigh, North Carol
 
 TIC helps small businesses, startups, and student ventures use technology to solve practical business problems.
 
+TIC is intentionally founder-led and currently small. The company prioritizes direct communication, practical solutions, and working software over unnecessary complexity.
+
 ## Founder
 
 TIC is founded by Prajith Gowri Shankar, a Computer Science student at NC State.
 
-TIC is intentionally founder-led and currently small.
-
-## What TIC Does
-
-TIC works across:
-
-- Strategy and planning
-- Systems architecture
-- AI and automation
-- Product engineering
-- Data and dashboards
-- Documentation and training
+TIC is currently founder-led. Clients work directly with the person building their project.
 
 ## Who TIC Works With
 
 ### Small Businesses
 
-TIC helps small businesses turn inefficient manual processes into practical technology solutions.
+TIC helps small businesses improve their websites, customer-facing systems, and manual processes through practical technology solutions.
 
 ### Startups
 
@@ -39,15 +30,204 @@ TIC works with early-stage founders who need prototypes, MVPs, technical plannin
 
 TIC works with student founders who need technical help while working within student-level budgets and timelines.
 
-## Current Work
+## Current Services
 
-TIC is currently taking clients for:
+TIC is currently taking clients for websites and tools for local businesses, prototypes for founders and students, and AI and automation projects.
 
-- Websites and tools for local businesses
-- Prototypes for founders and students
-- AI and automation projects
+### Website Development
 
-TIC is also developing internal AI and automation experiments.
+TIC builds modern websites and web-based tools for small businesses, startups, and student ventures.
+
+Website projects may include:
+
+- Responsive website design and development
+- Business information and service pages
+- Contact and lead-capture forms
+- Appointment or booking integrations when appropriate
+- AI chatbot integration
+- Search-engine-friendly website structure
+- Other custom functionality based on project requirements
+
+Website projects are scoped according to the client's needs.
+
+### AI & Automation
+
+TIC builds practical AI systems and automations that can reduce repetitive work and improve customer interactions.
+
+Examples include:
+
+- AI website chatbots
+- Retrieval-augmented generation (RAG) systems using a business's own information
+- Automated customer inquiry handling
+- Lead capture and routing
+- Internal knowledge systems
+- Workflow automation
+- Other custom AI applications
+
+TIC does not recommend AI simply because it is available. AI and automation projects should address a practical business problem.
+
+### Lead Capture & Customer Systems
+
+TIC can build technology that helps businesses capture and organize prospective-customer inquiries.
+
+Examples include:
+
+- Website contact systems
+- Lead-capture forms
+- AI-assisted inquiry handling
+- Customer information routing
+- Connections between website forms and other business systems when supported by the project
+
+TIC does not guarantee a specific number of leads, customers, or revenue.
+
+### Local SEO & Google Business Support
+
+TIC can provide technology-oriented support for improving a local business's online presence, including website search visibility and Google Business Profile-related work when appropriate.
+
+Specific work is determined by the client's needs and agreed project scope.
+
+TIC does not guarantee specific search rankings, traffic levels, leads, or revenue.
+
+### Custom Tools & Prototypes
+
+TIC builds prototypes, MVPs, and custom tools for founders, startups, and student ventures.
+
+Projects may include:
+
+- Proofs of concept
+- MVP development
+- Custom web applications
+- Technical prototypes
+- Internal business tools
+- Technical implementation of founder ideas
+
+The exact scope depends on the project's requirements.
+
+### Data & Dashboards
+
+TIC can build practical data tools and dashboards that help clients organize, understand, and use business information.
+
+Projects are scoped according to the data, systems, and outcomes involved.
+
+## Broader Capabilities
+
+TIC has experience and interest across:
+
+- Strategy and planning
+- Systems architecture
+- AI and automation
+- Product engineering
+- Data and dashboards
+- Documentation and training
+
+These capabilities do not necessarily represent standardized or currently published service packages. A project should be evaluated based on the client's actual needs.
+
+## How TIC Approaches Projects
+
+TIC believes technology should solve a real problem rather than exist for its own sake.
+
+Projects generally begin by understanding the client's goals, identifying the underlying problem, and determining whether technology is an appropriate solution.
+
+TIC prioritizes:
+
+- Practical solutions
+- Working software
+- Maintainable systems
+- Clear communication
+- Transparent collaboration
+- Appropriate technical complexity
+- Solutions that the client can understand and use
+
+TIC does not force clients into unnecessary technology or standardized solutions when a simpler approach is more appropriate.
+
+## Maintenance & Support
+
+Shipped isn't the finish line.
+
+Every project comes with documentation, so clients are not left without guidance after launch. Ongoing support is available for clients who would rather have TIC handle maintenance and changes over time.
+
+### 01 — Bug Fixes & Small Adjustments
+
+If something stops working as intended, TIC can handle bug fixes and small adjustments directly.
+
+### 02 — Dependency & Service Monitoring
+
+APIs are deprecated, providers change their services or terms, and third-party models and platforms can change over time. TIC can monitor relevant dependencies and services so potential problems can be addressed before they quietly affect the project.
+
+### 03 — Content & Copy Updates
+
+Small changes to text, images, and other content can be handled without reopening the entire project.
+
+### 04 — New Features
+
+Larger additions and new functionality are treated as new project work. They are scoped and quoted separately rather than being quietly included as unlimited support.
+
+There is currently no published support retainer package. Ongoing support is scoped based on what the client actually needs rather than using a one-size-fits-all plan.
+
+Already working with TIC? Reach out at any time. Support inquiries go directly to the person who built the project.
+
+## Project Scope & Pricing
+
+TIC does not currently publish standardized pricing for its services.
+
+Projects are quoted individually based on factors such as:
+
+- Project scope
+- Complexity
+- Required functionality
+- Integrations
+- Technical requirements
+- Ongoing support needs
+
+The chatbot must not invent prices, discounts, packages, timelines, guarantees, or estimates that are not explicitly provided by TIC.
+
+## Prospective Clients
+
+Visitors who are interested in working with TIC should be encouraged to contact TIC through the website contact section or by email.
+
+The chatbot may:
+
+- Explain TIC's services
+- Help a visitor determine whether their needs appear relevant to TIC's capabilities
+- Explain the general project process
+- Direct interested visitors toward contacting TIC
+
+The chatbot must not claim that a project has been accepted, scheduled, approved, quoted, or started unless that information has been explicitly provided by TIC.
+
+## AI Chatbot Behavior & Guardrails
+
+TIC's website chatbot represents TIC and should provide accurate, concise, professional information about the company.
+
+The chatbot should:
+
+- Use the information in this knowledge base as its primary source of truth
+- Answer questions about TIC's services, approach, support, and contact information
+- Be transparent when information is unavailable
+- Direct visitors to contact TIC when a question requires information not contained in the knowledge base
+- Help qualified prospects move toward contacting TIC
+- Avoid making commitments on behalf of TIC
+
+The chatbot must not:
+
+- Invent services TIC does not offer
+- Invent prices or packages
+- Invent clients, case studies, testimonials, results, or credentials
+- Promise a specific number of leads, customers, revenue, traffic, or search rankings
+- Guarantee project completion dates
+- Claim that TIC has accepted or approved a project
+- Claim that a particular integration is available unless it is confirmed
+- Present speculation as company policy
+- Provide professional legal, medical, accounting, financial, or other regulated advice on behalf of TIC
+
+If the knowledge base does not contain enough information to answer a question confidently, the chatbot should say that it does not have that information and recommend contacting TIC.
+
+## What TIC Does Not Provide
+
+TIC is a technology consulting company, not a provider of regulated professional services.
+
+TIC does not provide professional legal, medical, accounting, financial, or similar regulated professional services.
+
+TIC also does not guarantee business outcomes such as revenue, customer acquisition, search rankings, website traffic, or a specific number of leads.
 
 ## Philosophy
 
@@ -64,6 +244,6 @@ TIC believes in:
 
 Email: ticnc.inc@gmail.com
 
-Location: Raleigh, NC
+Location: Raleigh, North Carolina
 
 TIC is remote-friendly.
