@@ -9,15 +9,29 @@ export const TIC_KNOWLEDGE = `# TIC — Technology & Innovation Co.
 ## What is TIC?
 
 TIC stands for Technology & Innovation Co.
-TIC is a founder-led technology company based in Raleigh, North Carolina.
-TIC helps small businesses, startups, and student ventures use technology to solve practical business problems.
+TIC is a founder-led web development and technology company based in Raleigh, North Carolina.
+TIC's current focus is building effective websites and practical digital systems for small businesses, beginning with local businesses.
 
 ## Founder
 
 TIC is founded by Prajith Gowri Shankar, a Computer Science student at NC State.
 TIC is intentionally founder-led and currently small.
 
-## What TIC Does
+## Current Focus
+
+TIC is web-development-first. We build modern, responsive, maintainable websites that make a small business easy to understand, easy to trust, and easy to contact.
+
+Website work can include:
+- Website design and development
+- Service and business-information pages
+- Contact and lead-capture forms
+- Booking or appointment integrations when appropriate
+- Basic analytics and search-engine-friendly structure
+- Content updates and ongoing website support
+
+TIC can also scope a supporting customer system, automation, or custom web tool when it clearly improves the website or day-to-day business workflow. We do not recommend AI simply because it is available.
+
+## Capabilities Beyond the Website
 
 TIC works across:
 - Strategy and planning
@@ -30,20 +44,20 @@ TIC works across:
 ## Who TIC Works With
 
 ### Small Businesses
-TIC helps small businesses turn inefficient manual processes into practical technology solutions.
+Small businesses are TIC's primary audience. TIC helps them launch or improve their websites, make it easier for customers to get in touch, and connect essential tools that support their day-to-day operations.
 
 ### Startups
-TIC works with early-stage founders who need prototypes, MVPs, technical planning, or engineering help.
+TIC may selectively work with early-stage founders who need a website, prototype, or practical web-based tool.
 
 ### Student Ventures
-TIC works with student founders who need technical help while working within student-level budgets and timelines.
+TIC may selectively work with student founders who need a website, prototype, or technical help within a student-level budget and timeline.
 
 ## Current Work
 
 TIC is currently taking clients for:
-- Websites and tools for local businesses
-- Prototypes for founders and students
-- AI and automation projects
+- Small-business websites and website refreshes
+- Customer-facing systems such as contact, lead-capture, and booking flows
+- Selective automations and custom web tools that support a practical business need
 
 TIC is also developing internal AI and automation experiments.
 

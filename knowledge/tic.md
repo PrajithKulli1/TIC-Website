@@ -4,11 +4,11 @@
 
 TIC stands for Technology & Innovation Co.
 
-TIC is a founder-led technology company based in Raleigh, North Carolina.
+TIC is a founder-led web development and technology company based in Raleigh, North Carolina.
 
-TIC helps small businesses, startups, and student ventures use technology to solve practical business problems.
+TIC's current focus is building effective websites and practical digital systems for small businesses, starting with local businesses in Raleigh and beyond.
 
-TIC is intentionally founder-led and currently small. The company prioritizes direct communication, practical solutions, and working software over unnecessary complexity.
+TIC is intentionally founder-led and currently small. The company prioritizes direct communication, practical solutions, and work that is clear, useful, and maintainable over unnecessary complexity.
 
 ## Founder
 
@@ -20,23 +20,23 @@ TIC is currently founder-led. Clients work directly with the person building the
 
 ### Small Businesses
 
-TIC helps small businesses improve their websites, customer-facing systems, and manual processes through practical technology solutions.
+Small businesses are TIC's primary audience. TIC helps them launch or improve their websites, make it easier for customers to get in touch, and connect the essential tools that support their day-to-day operations.
 
 ### Startups
 
-TIC works with early-stage founders who need prototypes, MVPs, technical planning, or engineering help.
+TIC may selectively work with early-stage founders who need a website, prototype, or practical web-based tool.
 
 ### Student Ventures
 
-TIC works with student founders who need technical help while working within student-level budgets and timelines.
+TIC may selectively work with student founders who need a website, prototype, or technical help within a student-level budget and timeline.
 
-## Current Services
+## Current Focus & Services
 
-TIC is currently taking clients for websites and tools for local businesses, prototypes for founders and students, and AI and automation projects.
+TIC is currently focused first on website development for small businesses. TIC can also scope supporting customer systems, automations, and custom web tools when they clearly improve the website or business workflow.
 
 ### Website Development
 
-TIC builds modern websites and web-based tools for small businesses, startups, and student ventures.
+TIC builds modern, responsive, and maintainable websites for small businesses. A website should make a business easy to understand, easy to trust, and easy to contact.
 
 Website projects may include:
 
@@ -44,15 +44,15 @@ Website projects may include:
 - Business information and service pages
 - Contact and lead-capture forms
 - Appointment or booking integrations when appropriate
-- AI chatbot integration
-- Search-engine-friendly website structure
-- Other custom functionality based on project requirements
+- Basic analytics and search-engine-friendly structure
+- Content updates and ongoing website support
+- Other practical functionality based on the project's needs
 
 Website projects are scoped according to the client's needs.
 
-### AI & Automation
+### Supporting AI & Automation
 
-TIC builds practical AI systems and automations that can reduce repetitive work and improve customer interactions.
+TIC can add practical AI and automation where it supports a real small-business workflow or customer experience. It is not the starting point for every project.
 
 Examples include:
 
@@ -68,7 +68,7 @@ TIC does not recommend AI simply because it is available. AI and automation proj
 
 ### Lead Capture & Customer Systems
 
-TIC can build technology that helps businesses capture and organize prospective-customer inquiries.
+TIC can connect a website to practical systems that help businesses capture, route, and follow up on prospective-customer inquiries.
 
 Examples include:
 
@@ -80,17 +80,17 @@ Examples include:
 
 TIC does not guarantee a specific number of leads, customers, or revenue.
 
-### Local SEO & Google Business Support
+### Local Search & Google Business Support
 
-TIC can provide technology-oriented support for improving a local business's online presence, including website search visibility and Google Business Profile-related work when appropriate.
+TIC can provide technology-oriented support for improving a local business's online presence, including website search visibility and Google Business Profile-related work when appropriate. This support is tied to a business's website and digital foundation, not a promise of rankings.
 
 Specific work is determined by the client's needs and agreed project scope.
 
 TIC does not guarantee specific search rankings, traffic levels, leads, or revenue.
 
-### Custom Tools & Prototypes
+### Custom Web Tools & Prototypes
 
-TIC builds prototypes, MVPs, and custom tools for founders, startups, and student ventures.
+When a website alone is not enough, TIC can build focused web tools, prototypes, and internal systems for small businesses and selected founders.
 
 Projects may include:
 
@@ -109,9 +109,9 @@ TIC can build practical data tools and dashboards that help clients organize, un
 
 Projects are scoped according to the data, systems, and outcomes involved.
 
-## Broader Capabilities
+## Capabilities Beyond the Website
 
-TIC has experience and interest across:
+TIC can scope work across:
 
 - Strategy and planning
 - Systems architecture
@@ -120,16 +120,17 @@ TIC has experience and interest across:
 - Data and dashboards
 - Documentation and training
 
-These capabilities do not necessarily represent standardized or currently published service packages. A project should be evaluated based on the client's actual needs.
+These are not standardized packages or automatic add-ons. A project is evaluated against the client's actual needs, budget, and timeline.
 
 ## How TIC Approaches Projects
 
-TIC believes technology should solve a real problem rather than exist for its own sake.
+TIC believes a website and its supporting technology should solve a real business problem rather than exist for its own sake.
 
 Projects generally begin by understanding the client's goals, identifying the underlying problem, and determining whether technology is an appropriate solution.
 
 TIC prioritizes:
 
+- A clear website purpose
 - Practical solutions
 - Working software
 - Maintainable systems
@@ -183,7 +184,7 @@ The chatbot must not invent prices, discounts, packages, timelines, guarantees, 
 
 ## Prospective Clients
 
-Visitors who are interested in working with TIC should be encouraged to contact TIC through the website contact section or by email.
+Visitors who are interested in a small-business website, a website refresh, or a connected customer-facing system should be encouraged to contact TIC through the website contact section or by email.
 
 The chatbot may:
 
