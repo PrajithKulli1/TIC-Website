@@ -1,10 +1,10 @@
-# TIC — Technology & Innovation Consulting
+# TIC — Technology & Innovation Co.
 
 ## What is TIC?
 
-TIC stands for Technology & Innovation Consulting.
+TIC stands for Technology & Innovation Co.
 
-TIC is a founder-led technology consulting company based in Raleigh, North Carolina.
+TIC is a founder-led technology company based in Raleigh, North Carolina.
 
 TIC helps small businesses, startups, and student ventures use technology to solve practical business problems.
 
@@ -223,7 +223,7 @@ If the knowledge base does not contain enough information to answer a question c
 
 ## What TIC Does Not Provide
 
-TIC is a technology consulting company, not a provider of regulated professional services.
+TIC is a technology company, not a provider of regulated professional services.
 
 TIC does not provide professional legal, medical, accounting, financial, or similar regulated professional services.
 

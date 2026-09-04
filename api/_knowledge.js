@@ -4,12 +4,12 @@
 // (or edit your tic.md source and re-paste it here) to update what the
 // assistant knows about TIC.
 
-export const TIC_KNOWLEDGE = `# TIC — Technology & Innovation Consulting
+export const TIC_KNOWLEDGE = `# TIC — Technology & Innovation Co.
 
 ## What is TIC?
 
-TIC stands for Technology & Innovation Consulting.
-TIC is a founder-led technology consulting company based in Raleigh, North Carolina.
+TIC stands for Technology & Innovation Co.
+TIC is a founder-led technology company based in Raleigh, North Carolina.
 TIC helps small businesses, startups, and student ventures use technology to solve practical business problems.
 
 ## Founder
