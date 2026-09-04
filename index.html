@@ -553,69 +553,6 @@
       margin: 0;
     }
 
-    /* ---------- BUILDING ---------- */
-
-    .building {
-      background: var(--paper);
-    }
-
-    .building-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .building-card {
-      background: var(--paper);
-      border: 1px solid var(--line-light);
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .building-card .status {
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--crimson);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .building-card .status::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      flex: 0 0 6px;
-      border-radius: 50%;
-      background: var(--crimson);
-    }
-
-    .building-card h3 {
-      font-size: 19px;
-      line-height: 1.3;
-    }
-
-    .building-card p {
-      font-size: 14.5px;
-      color: #262626;
-      margin: 0;
-      flex: 1;
-    }
-
-    .honesty-note {
-      margin-top: 36px;
-      border-left: 2px solid var(--crimson);
-      padding: 4px 0 4px 20px;
-      font-family: var(--font-mono);
-      font-size: 13.5px;
-      color: #4a4a4a;
-      max-width: 640px;
-    }
-
     /* ---------- MAINTENANCE & SUPPORT ---------- */
 
     .support {
@@ -661,6 +598,16 @@
       font-size: 14.5px;
       color: #262626;
       margin: 0;
+    }
+
+    .honesty-note {
+      margin-top: 36px;
+      border-left: 2px solid var(--crimson);
+      padding: 4px 0 4px 20px;
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      color: #4a4a4a;
+      max-width: 640px;
     }
 
     @media (max-width: 920px) {
@@ -1029,10 +976,6 @@
         grid-template-columns: 1fr;
       }
 
-      .building-grid {
-        grid-template-columns: 1fr;
-      }
-
       .audience-grid {
         grid-template-columns: 1fr;
         gap: 34px;
@@ -1322,9 +1265,9 @@
           </h1>
 
           <p class="lede">
-            TIC designs and builds software, tools, and automations for small
-            businesses, startups, and student ventures — the kind of work
-            bigger firms are too expensive or too slow to take on.
+            TIC designs and builds clear, reliable websites for small
+            businesses — with the booking, lead-capture, and practical tools
+            that help customers take the next step.
           </p>
 
           <div class="hero-ctas">
@@ -1569,63 +1512,6 @@
           </div>
 
         </div>
-      </div>
-    </section>
-
-    <!-- ================= WHAT WE'RE BUILDING ================= -->
-
-    <section class="building" id="building">
-      <div class="wrap">
-
-        <div class="section-head">
-          <p class="eyebrow">What we're building</p>
-          <h2>Where our time actually goes.</h2>
-          <p class="deck">
-            No padded portfolio, no borrowed case studies — just what TIC is
-            genuinely focused on right now.
-          </p>
-        </div>
-
-        <div class="building-grid">
-
-          <div class="building-card">
-            <span class="status">Actively taking clients</span>
-            <h3>Websites &amp; tools for local businesses</h3>
-            <p>
-              Practical websites, booking flows, and internal tools for
-              small businesses that need something reliable and easy to
-              maintain — not flashy.
-            </p>
-          </div>
-
-          <div class="building-card">
-            <span class="status">Actively taking clients</span>
-            <h3>Prototypes for founders &amp; classmates</h3>
-            <p>
-              MVPs and working prototypes for early founders and fellow
-              students who have a real idea and need someone who can
-              actually build it.
-            </p>
-          </div>
-
-          <div class="building-card">
-            <span class="status">Internal / in progress</span>
-            <h3>Our own AI &amp; automation experiments</h3>
-            <p>
-              Automations and small AI tools we build for ourselves first,
-              so we've actually used something before we ever bring it to
-              a client.
-            </p>
-          </div>
-
-        </div>
-
-        <p class="honesty-note">
-          We'd rather under-promise here than pad this page with work we
-          haven't done. If you want references or to see something we've
-          actually shipped, ask — we'll show you directly.
-        </p>
-
       </div>
     </section>
 
